@@ -48,19 +48,23 @@ body{
 	<form class="form-horizantal" id="Register" method="post" action="">
 
 		{% csrf_token %}
-		{% for hidden in userform.hidden_fields %}
-			{{ hidden }}
-		{% endfor %}
+		{% if not userform.OpenID.value %}
+			{% for hidden in userform.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
 		 
-		{% for field in userform.visible_fields %}
-            		{{ field.errors }}<br/>
-            		<div class="col-xs-3">
-            		{{ field.label }}
-            		</div>
-            		{{ field }}	
-            		<br />
+			{% for field in userform.visible_fields %}
+				{{ field.errors }}<br/>
+				<div class="col-xs-3">
+				{{ field.label }}
+				</div>
+				{{ field }}	
+				<br />
         		{% endfor %}
-        		
+		{% else %}
+			YOU HAVE'VEN REGISTERED MEET HERE			
+		{% endif %}
+		
         		<div>
         		<br />
         		<br />

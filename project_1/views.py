@@ -148,7 +148,7 @@ def create_menu(request):
     	return HttpResponse(WEIXIN_ACCESS_TOKEN+'create menu err:' + response['errmsg'])
     	#return HttpResponse('create menu err:' + response['errmsg'])
 
-'''
+
 def user_info(request):
     code = request.GET.get('code', '')
     if code == '':
@@ -166,10 +166,10 @@ def user_info(request):
     res, content = my_get(url)
     dict_user2 = parse_Json2Dict(content)
     dict_user.update(dict_user2)
-    return render(request, 'project_1/user_info.html', dict_user)
-
+    #return render(request, 'project_1/user_info.html', dict_user)
+    return dict_user	
     #return HttpResponse('err: state')
-'''
+
 def qrcode(request):
     value_number = request.GET.get('num', None)
     if not value_number:
@@ -269,7 +269,22 @@ def test3(request) :
         else :
             print userform.errors
     else :
-        userform = Register(initial = {'OpenID':'OpenID'})
+        userinfo = {}
+        userinfo = user_info(request)
+        print userinfo
+        print 'XXXXXXXXXXXXXXXXXXXXX'
+	openid = userinfo['openid']
+	print openid
+	print 'YYYYYYYYYYYYYYYYYYY'
+	ret = UserProfile.objects.filter(OpenID=openid)
+	print ret
+	print 'zzzzzzzzzzzzzzzzzzz'
+	if not ret:
+	    userform = Register(initial = {'OpenID':'OpenID'})
+	else:
+	    userform = Register(initial = {'OpenID':openid}) 
+	    print userform
+	    print 'bbbbbbbbbbbbbbbbbbb'	    
     return render(request,'project_1/test3.html', {'userform' : userform})
 
 

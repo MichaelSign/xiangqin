@@ -138,3 +138,24 @@ def get_jsapi_signature(noncestr, timestamp, url):
 
 def create_out_trade_no():
     return str(int(time.time())) + random.randint(10000, 99999)
+
+
+def user_info(request):
+    code = request.GET.get('code', '')
+    if code == '':
+        return HttpResponse('请您先授权')
+    scope = request.GET.get('scope', None)
+        
+    url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='+WEIXIN_APPID+'&secret='+WEIXIN_APPSECRET+'&code='+code+'&grant_type=authorization_code'
+    resp, content = my_get(url)
+    dict_user = parse_Json2Dict(content)
+    print scope
+    #if state == 'snsapi_base':
+   # return render(request, 'user_info.html', dict_user)
+   #if state == 'snsapi_userinfo':
+    url = 'https://api.weixin.qq.com/sns/userinfo?access_token='+dict_user['access_token']+'&openid='+dict_user['openid']+'&lang=zh_CN'
+    res, content = my_get(url)
+    dict_user2 = parse_Json2Dict(content)
+    dict_user.update(dict_user2)
+  # return render(request, 'project_1/user_info.html', dict_user)
+    return dict_user
