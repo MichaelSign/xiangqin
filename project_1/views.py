@@ -112,27 +112,27 @@ def create_menu(request):
     button1['url']='https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + WEIXIN_APPID + '&redirect_uri=http://101.200.205.241/project_1/user_info/&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect'
 
 
-    button2 = {}
-    button2['name'] = 'test2.html'
-    button2['type'] = 'view'
-    button2['url'] = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+WEIXIN_APPID + '&redirect_uri=http://101.200.205.241/project_1/test2/&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect'
-    button3 = {}
-    button3['name'] = '3'
+  #  button2 = {}
+   # button2['name'] = 'test2.html'
+    #button2['type'] = 'view'
+    #button2['url'] = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+WEIXIN_APPID + '&redirect_uri=http://101.200.205.241/project_1/test2/&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect'
+    #button3 = {}
+    #button3['name'] = '3'
     #button3['type'] = 'view'
     #button3['url'] = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+WEIXIN_APPID + '&redirect_uri=http://101.200.205.241/project_1/test3/&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect'
-    button31 = {}
-    button31['name'] = 'test1'
-    button31['type'] = 'view'
-    button31['url'] = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + WEIXIN_APPID + '&redirect_uri=http://101.200.205.241/project_1/test/&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect'
-    button32 = {}
-    button32['name'] = 'test3'
-    button32['type'] = 'view'
-    button32['url'] = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+WEIXIN_APPID + '&redirect_uri=http://101.200.205.241/project_1/test3/&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect'
-    button33 = {}
-    button33['name'] = '我的二维码'
-    button33['type'] = 'view'
-    button33['url'] = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+WEIXIN_APPID + '&redirect_uri=http://101.200.205.241/project_1/qrcode/?num=1/&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect'
-    button3['sub_button'] = [button31, button32, button33]
+   # button31 = {}
+    #button31['name'] = 'test1'
+    #button31['type'] = 'view'
+    #button31['url'] = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + WEIXIN_APPID + '&redirect_uri=http://101.200.205.241/project_1/test/&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect'
+    button2 = {}
+    button2['name'] = '注册'
+    button2['type'] = 'view'
+    button2['url'] = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+WEIXIN_APPID + '&redirect_uri=http://101.200.205.241/project_1/test3/&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect'
+    button3 = {}
+    button3['name'] = '我的二维码'
+    button3['type'] = 'view'
+    button3['url'] = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+WEIXIN_APPID + '&redirect_uri=http://101.200.205.241/project_1/qrcode/?num=1/&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect'
+    #button3['sub_button'] = [button31, button32, button33]
 
     menu_data['button'] = [button1, button2, button3]
     
